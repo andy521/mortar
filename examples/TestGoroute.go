@@ -10,12 +10,17 @@ func Text_goroute(a int, b int) {
 	fmt.Println(sum)
 }
 
+func ff(v ...interface{}) {
+	fmt.Println(v)
+}
+
 func main() {
-	nums := 1000000
+	nums := 100000
 	fmt.Printf("nums:", nums)
 	start := time.Now()
 	for i := 0; i < nums; i++ {
-		go Text_goroute(i, i*2)
+		go ff([]interface{}{i, i * 2, "hello"})
+		//go Text_goroute(i, i*2)
 	}
 	end := time.Since(start)
 	fmt.Println("TestGoroute;nums=", nums, "\n消耗时间=", end)

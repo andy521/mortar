@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	nums := 1000000
+	nums := 100000
 	fmt.Printf("nums:", nums)
 	start := time.Now()
 	// 创建容量为 10 的任务池
