@@ -14,6 +14,9 @@ func ff(v ...interface{}) {
 	fmt.Println(v)
 }
 
+/**
+普通的调用方法
+*/
 func main() {
 	nums := 100000
 	fmt.Printf("nums:", nums)
