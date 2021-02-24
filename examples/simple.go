@@ -4,9 +4,13 @@ import (
 	"fmt"
 	"github.com/wazsmwazsm/mortar"
 	"sync"
+	"time"
 )
 
 func main() {
+	nums := 1000000
+	fmt.Printf("nums:", nums)
+	start := time.Now()
 	// 创建容量为 10 的任务池
 	pool, err := mortar.NewPool(10)
 	if err != nil {
@@ -15,7 +19,7 @@ func main() {
 
 	wg := new(sync.WaitGroup)
 
-	for i := 0; i < 1000; i++ {
+	for i := 0; i < nums; i++ {
 		wg.Add(1)
 		// 创建任务
 		task := &mortar.Task{
@@ -51,4 +55,7 @@ func main() {
 	if err != nil {
 		fmt.Println(err) // print: pool already closed
 	}
+
+	end := time.Since(start)
+	fmt.Println("nums=", nums, "\n消耗时间=", end)
 }
